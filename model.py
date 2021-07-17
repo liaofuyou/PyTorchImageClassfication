@@ -6,6 +6,8 @@ from torch.nn import functional as F
 from alexnet import AlexNet
 from lenet import LeNet
 from mnist_datamodule import MNISTDataModule
+from nin import NIN
+from vgg import VGG
 
 
 class ImageClassifier(pl.LightningModule):
@@ -23,6 +25,10 @@ class ImageClassifier(pl.LightningModule):
             self.net = LeNet()
         elif net_name == "alexnet":
             self.net = AlexNet()
+        elif net_name == "vgg":
+            self.net = VGG()
+        elif net_name == "nin":
+            self.net = NIN()
         else:
             self.net = LeNet()
 
