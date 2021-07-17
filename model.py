@@ -1,10 +1,9 @@
 import pytorch_lightning as pl
 import torch
 import torchmetrics
-from torch import nn
-from torch.nn import Sequential
 from torch.nn import functional as F
 
+from alexnet import AlexNet
 from lenet import LeNet
 from mnist_datamodule import MNISTDataModule
 
@@ -23,7 +22,7 @@ class ImageClassifier(pl.LightningModule):
         if net_name == "lenet":
             self.net = LeNet()
         elif net_name == "alexnet":
-            self.net = LeNet()
+            self.net = AlexNet()
         else:
             self.net = LeNet()
 
