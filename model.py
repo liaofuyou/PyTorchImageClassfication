@@ -8,6 +8,7 @@ from googlenet import GoogleNet
 from lenet import LeNet
 from mnist_datamodule import MNISTDataModule
 from nin import NIN
+from resnet import ResNet
 from vgg import VGG
 
 
@@ -15,23 +16,23 @@ class ImageClassifier(pl.LightningModule):
 
     def __init__(
             self,
-            net_name="lenet",
+            net_name="LeNet",
             hidden_dim: int = 128,
             learning_rate: float = 0.0001,
     ):
         super().__init__()
         self.save_hyperparameters()
 
-        if net_name == "lenet":
-            self.net = LeNet()
-        elif net_name == "alexnet":
+        if net_name == "AlexNet":
             self.net = AlexNet()
-        elif net_name == "vgg":
+        elif net_name == "VGG":
             self.net = VGG()
-        elif net_name == "nin":
+        elif net_name == "NIN":
             self.net = NIN()
         elif net_name == "GoogleNet":
             self.net = GoogleNet()
+        elif net_name == "ResNet":
+            self.net = ResNet()
         else:
             self.net = LeNet()
 
