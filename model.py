@@ -4,6 +4,7 @@ import torchmetrics
 from torch.nn import functional as F
 
 from alexnet import AlexNet
+from densenet import DenseNet
 from googlenet import GoogleNet
 from lenet import LeNet
 from mnist_datamodule import MNISTDataModule
@@ -33,6 +34,8 @@ class ImageClassifier(pl.LightningModule):
             self.net = GoogleNet()
         elif net_name == "ResNet":
             self.net = ResNet()
+        elif net_name == "DenseNet":
+            self.net = DenseNet()
         else:
             self.net = LeNet()
 
