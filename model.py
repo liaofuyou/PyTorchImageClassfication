@@ -4,6 +4,7 @@ import torchmetrics
 from torch.nn import functional as F
 
 from alexnet import AlexNet
+from googlenet import GoogleNet
 from lenet import LeNet
 from mnist_datamodule import MNISTDataModule
 from nin import NIN
@@ -29,6 +30,8 @@ class ImageClassifier(pl.LightningModule):
             self.net = VGG()
         elif net_name == "nin":
             self.net = NIN()
+        elif net_name == "GoogleNet":
+            self.net = GoogleNet()
         else:
             self.net = LeNet()
 
