@@ -81,7 +81,7 @@ def cli_main():
     dm = MNISTDataModule()
 
     # train
-    trainer = pl.Trainer(val_check_interval=0.25)
+    trainer = pl.Trainer(max_epochs=10, val_check_interval=0.25)
     trainer.fit(model, dm)
 
 
